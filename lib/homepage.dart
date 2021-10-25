@@ -29,9 +29,11 @@ class _HomePageState extends State<HomePage> {
                       child: BoxPanel(
                         colour: activeCardColour,
                         cardChild: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
                               FontAwesomeIcons.mars,
+                              color: Color(0xFFFFFFFF),
                               size: 80.0,
                             ),
                             SizedBox(
