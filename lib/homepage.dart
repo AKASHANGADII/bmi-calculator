@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'iconcontent.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const activeCardColour = Color(0xFF1D1E33);
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -28,30 +29,14 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                       child: BoxPanel(
                         colour: activeCardColour,
-                        cardChild: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              FontAwesomeIcons.mars,
-                              color: Color(0xFFFFFFFF),
-                              size: 80.0,
-                            ),
-                            SizedBox(
-                              height: 15.0,
-                            ),
-                            Text(
-                              'Male',
-                              style: TextStyle(
-                                fontSize: 18.0,
-                                color: Color(0xFF8D8E98),
-                              ),
-                            )
-                          ],
-                        ),
+                        cardChild: IconContent(icon: FontAwesomeIcons.mars, label: 'MALE'),
                       ),
                     ),
                     Expanded(
-                      child: BoxPanel(colour: activeCardColour),
+                      child: BoxPanel(
+                        colour: activeCardColour,
+                        cardChild: IconContent(icon: FontAwesomeIcons.venus, label: 'FEMALE'),
+                      ),
                     ),
                   ],
                 ),
@@ -74,6 +59,36 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ));
+  }
+}
+
+class IconContent extends StatelessWidget {
+  IconContent({this.icon, this.label});
+
+  final IconData icon;
+  final String label;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          icon,
+          color: Color(0xFFFFFFFF),
+          size: 80.0,
+        ),
+        SizedBox(
+          height: 15.0,
+        ),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 18.0,
+            color: Color(0xFF8D8E98),
+          ),
+        )
+      ],
+    );
   }
 }
 
