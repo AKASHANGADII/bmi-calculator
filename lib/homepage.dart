@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'iconcontent.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'reusable_card.dart';
+import 'genderBox.dart';
 
 const activeCardColour = Color(0xFF1D1E33);
 
