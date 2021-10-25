@@ -28,13 +28,13 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 children: [
                   Expanded(
-                    child: BoxPanel(
+                    child: ReusableCard(
                       colour: activeCardColour,
                       cardChild: IconContent(icon: FontAwesomeIcons.mars, label: 'MALE'),
                     ),
                   ),
                   Expanded(
-                    child: BoxPanel(
+                    child: ReusableCard(
                       colour: activeCardColour,
                       cardChild: IconContent(icon: FontAwesomeIcons.venus, label: 'FEMALE'),
                     ),
@@ -44,17 +44,17 @@ class _HomePageState extends State<HomePage> {
             ),
             Expanded(
               flex: 2,
-              child: BoxPanel(colour: activeCardColour),
+              child: ReusableCard(colour: activeCardColour),
             ),
             Expanded(
               flex: 2,
               child: Row(
                 children: [
                   Expanded(
-                    child: BoxPanel(colour: activeCardColour),
+                    child: ReusableCard(colour: activeCardColour),
                   ),
                   Expanded(
-                    child: BoxPanel(colour: activeCardColour),
+                    child: ReusableCard(colour: activeCardColour),
                   ),
                 ],
               ),
