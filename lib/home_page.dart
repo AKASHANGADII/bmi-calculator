@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'icon_content.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
+import 'icon_content.dart';
 
 const activeCardColour = Color(0xFF1D1E33);
 
