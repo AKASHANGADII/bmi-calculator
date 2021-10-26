@@ -100,20 +100,17 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                child: Text(
-                  'CALCULATE',
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFFFFFFFF),
-                  ),
+            Container(
+              child: Text(
+                'CALCULATE',
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFFFFFFFF),
                 ),
-                color: Colors.red,
               ),
-            )
+              color: Colors.red,
+            ),
           ],
         ),
       ),
