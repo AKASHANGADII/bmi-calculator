@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'icon_content.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
-import 'icon_content.dart';
 
 const activeCardColour = Color(0xFF1D1E33);
+const inactiveCardColour = Color(0xFF111328);
+
+enum Gender {
+  male,
+  female,
+}
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
@@ -12,6 +18,27 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Color maleCardColor = inactiveCardColour;
+  Color femaleCardColor = inactiveCardColour;
+
+  void genderCardColor(Gender selectedGender) {
+    if (selectedGender == Gender.male) {
+      if (maleCardColor == inactiveCardColour) {
+        maleCardColor = activeCardColour;
+        femaleCardColor = inactiveCardColour;
+      } else {
+        maleCardColor = inactiveCardColour;
+      }
+    } else {
+      if (femaleCardColor == inactiveCardColour) {
+        femaleCardColor = activeCardColour;
+        maleCardColor = inactiveCardColour;
+      } else {
+        femaleCardColor = inactiveCardColour;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,14 +55,28 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 children: [
                   Expanded(
-                    child: ReusableCard(
-                      colour: activeCardColour,
-                      cardChild: IconContent(icon: FontAwesomeIcons.mars, label: 'MALE'),
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          genderCardColor(Gender.male);
+                        });
+                      },
+                      child: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            genderCardColor(Gender.female);
+                          });
+                        },
+                        child: ReusableCard(
+                          colour: maleCardColor,
+                          cardChild: IconContent(icon: FontAwesomeIcons.mars, label: 'MALE'),
+                        ),
+                      ),
                     ),
                   ),
                   Expanded(
                     child: ReusableCard(
-                      colour: activeCardColour,
+                      colour: femaleCardColor,
                       cardChild: IconContent(icon: FontAwesomeIcons.venus, label: 'FEMALE'),
                     ),
                   ),
@@ -62,21 +103,15 @@ class _HomePageState extends State<HomePage> {
             Expanded(
               flex: 1,
               child: Container(
-                margin: EdgeInsets.all(15.0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  color: Colors.red,
-                ),
-                child: Center(
-                  child: Text(
-                    'CALCULATE',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFFFFFFFF),
-                    ),
+                child: Text(
+                  'CALCULATE',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFFFFFFFF),
                   ),
                 ),
+                color: Colors.red,
               ),
             )
           ],
