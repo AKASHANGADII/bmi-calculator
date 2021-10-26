@@ -103,6 +103,7 @@ class _HomePageState extends State<HomePage> {
             Container(
               width: double.infinity,
               height: 45.0,
+              margin: EdgeInsets.only(top: 10.0),
               child: Center(
                 child: Text(
                   'CALCULATE',
