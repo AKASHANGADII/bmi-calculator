@@ -61,23 +61,23 @@ class _HomePageState extends State<HomePage> {
                           genderCardColor(Gender.male);
                         });
                       },
-                      child: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            genderCardColor(Gender.female);
-                          });
-                        },
-                        child: ReusableCard(
-                          colour: maleCardColor,
-                          cardChild: IconContent(icon: FontAwesomeIcons.mars, label: 'MALE'),
-                        ),
+                      child: ReusableCard(
+                        colour: maleCardColor,
+                        cardChild: IconContent(icon: FontAwesomeIcons.mars, label: 'MALE'),
                       ),
                     ),
                   ),
                   Expanded(
-                    child: ReusableCard(
-                      colour: femaleCardColor,
-                      cardChild: IconContent(icon: FontAwesomeIcons.venus, label: 'FEMALE'),
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          genderCardColor(Gender.female);
+                        });
+                      },
+                      child: ReusableCard(
+                        colour: femaleCardColor,
+                        cardChild: IconContent(icon: FontAwesomeIcons.venus, label: 'FEMALE'),
+                      ),
                     ),
                   ),
                 ],
