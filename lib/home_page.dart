@@ -102,13 +102,15 @@ class _HomePageState extends State<HomePage> {
             ),
             Container(
               width: double.infinity,
-              height: 25.0,
-              child: Text(
-                'CALCULATE',
-                style: TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFFFFFFFF),
+              height: 45.0,
+              child: Center(
+                child: Text(
+                  'CALCULATE',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFFFFFFFF),
+                  ),
                 ),
               ),
               color: Colors.red,
