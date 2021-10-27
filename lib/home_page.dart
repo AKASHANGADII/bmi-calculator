@@ -18,26 +18,27 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Color maleCardColor = inactiveCardColour;
-  Color femaleCardColor = inactiveCardColour;
-
-  void genderCardColor(Gender selectedGender) {
-    if (selectedGender == Gender.male) {
-      if (maleCardColor == inactiveCardColour) {
-        maleCardColor = activeCardColour;
-        femaleCardColor = inactiveCardColour;
-      } else {
-        maleCardColor = inactiveCardColour;
-      }
-    } else {
-      if (femaleCardColor == inactiveCardColour) {
-        femaleCardColor = activeCardColour;
-        maleCardColor = inactiveCardColour;
-      } else {
-        femaleCardColor = inactiveCardColour;
-      }
-    }
-  }
+  Gender selectedGender;
+  // Color maleCardColor = inactiveCardColour;
+  // Color femaleCardColor = inactiveCardColour;
+  //
+  // void genderCardColor(Gender selectedGender) {
+  //   if (selectedGender == Gender.male) {
+  //     if (maleCardColor == inactiveCardColour) {
+  //       maleCardColor = activeCardColour;
+  //       femaleCardColor = inactiveCardColour;
+  //     } else {
+  //       maleCardColor = inactiveCardColour;
+  //     }
+  //   } else {
+  //     if (femaleCardColor == inactiveCardColour) {
+  //       femaleCardColor = activeCardColour;
+  //       maleCardColor = inactiveCardColour;
+  //     } else {
+  //       femaleCardColor = inactiveCardColour;
+  //     }
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -58,11 +59,11 @@ class _HomePageState extends State<HomePage> {
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          genderCardColor(Gender.male);
+                          selectedGender = Gender.male;
                         });
                       },
                       child: ReusableCard(
-                        colour: maleCardColor,
+                        colour: selectedGender == Gender.male ? activeCardColour : inactiveCardColour,
                         cardChild: IconContent(icon: FontAwesomeIcons.mars, label: 'MALE'),
                       ),
                     ),
@@ -71,11 +72,11 @@ class _HomePageState extends State<HomePage> {
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          genderCardColor(Gender.female);
+                          selectedGender = Gender.female;
                         });
                       },
                       child: ReusableCard(
-                        colour: femaleCardColor,
+                        colour: selectedGender == Gender.female ? activeCardColour : inactiveCardColour,
                         cardChild: IconContent(icon: FontAwesomeIcons.venus, label: 'FEMALE'),
                       ),
                     ),
@@ -104,14 +105,12 @@ class _HomePageState extends State<HomePage> {
               width: double.infinity,
               height: 45.0,
               margin: EdgeInsets.only(top: 10.0),
-              child: Center(
-                child: Text(
-                  'CALCULATE',
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFFFFFFFF),
-                  ),
+              child: Text(
+                'CALCULATE',
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFFFFFFFF),
                 ),
               ),
               color: Colors.red,
