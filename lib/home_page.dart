@@ -17,7 +17,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Gender selectedGender;
-  int height = 180;
+  int height = 170;
+  int weight = 50;
+  int age = 18;
   // Color maleCardColor = inactiveCardColour;
   // Color femaleCardColor = inactiveCardColour;
   //
@@ -43,8 +45,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFF0A0E21),
         title: Center(
-          child: Text('BMI-Calculator'),
+          child: Text('BMI CALCULATOR'),
         ),
       ),
       body: SafeArea(
@@ -57,9 +60,11 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        setState(() {
-                          selectedGender = Gender.male;
-                        });
+                        setState(
+                          () {
+                            selectedGender = Gender.male;
+                          },
+                        );
                       },
                       child: ReusableCard(
                         colour: selectedGender == Gender.male ? kActiveCardColour : kInActiveCardColour,
@@ -70,9 +75,11 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        setState(() {
-                          selectedGender = Gender.female;
-                        });
+                        setState(
+                          () {
+                            selectedGender = Gender.female;
+                          },
+                        );
                       },
                       child: ReusableCard(
                         colour: selectedGender == Gender.female ? kActiveCardColour : kInActiveCardColour,
@@ -106,20 +113,23 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           'cm',
                           style: kFontTextStyle,
-                        )
+                        ),
                       ],
                     ),
                     Slider(
-                        value: height.toDouble(),
-                        min: 120.0,
-                        max: 220.0,
-                        activeColor: Color(0xFFEB1555),
-                        inactiveColor: Color(0xFF8D8E98),
-                        onChanged: (double newValue) {
-                          setState(() {
+                      value: height.toDouble(),
+                      min: 120.0,
+                      max: 220.0,
+                      activeColor: Color(0xFFEB1555),
+                      inactiveColor: Color(0xFF8D8E98),
+                      onChanged: (double newValue) {
+                        setState(
+                          () {
                             height = newValue.round();
-                          });
-                        }),
+                          },
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),
@@ -129,10 +139,84 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 children: [
                   Expanded(
-                    child: ReusableCard(colour: kActiveCardColour),
+                    child: ReusableCard(
+                      colour: kActiveCardColour,
+                      cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('WEIGHT', style: kFontTextStyle),
+                          Text(
+                            weight.toString(),
+                            style: kNumberTextStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RoundIconButton(
+                                icon: FontAwesomeIcons.minus,
+                                onPressed: () {
+                                  setState(() {
+                                    weight--;
+                                  });
+                                },
+                              ),
+                              SizedBox(width: 10.0),
+                              RoundIconButton(
+                                icon: FontAwesomeIcons.plus,
+                                onPressed: () {
+                                  setState(
+                                    () {
+                                      weight++;
+                                    },
+                                  );
+                                },
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                   Expanded(
-                    child: ReusableCard(colour: kActiveCardColour),
+                    child: ReusableCard(
+                      colour: kActiveCardColour,
+                      cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('AGE', style: kFontTextStyle),
+                          Text(
+                            age.toString(),
+                            style: kNumberTextStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RoundIconButton(
+                                icon: FontAwesomeIcons.minus,
+                                onPressed: () {
+                                  setState(
+                                    () {
+                                      age--;
+                                    },
+                                  );
+                                },
+                              ),
+                              SizedBox(width: 10.0),
+                              RoundIconButton(
+                                icon: FontAwesomeIcons.plus,
+                                onPressed: () {
+                                  setState(
+                                    () {
+                                      age++;
+                                    },
+                                  );
+                                },
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -143,10 +227,10 @@ class _HomePageState extends State<HomePage> {
               margin: EdgeInsets.only(top: 10.0),
               child: Center(
                 child: Text(
-                  'CALCULATE',
+                  'CALCULATE YOUR BMI',
                   style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.w500,
                     color: Color(0xFFFFFFFF),
                   ),
                 ),
@@ -155,6 +239,27 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+  RoundIconButton({@required this.icon, @required this.onPressed});
+  final IconData icon;
+  final Function onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      child: Icon(icon, color: Colors.white),
+      elevation: 6.0,
+      onPressed: onPressed,
+      shape: CircleBorder(),
+      fillColor: Color(0xFF4C4F5E),
+      constraints: BoxConstraints.tightFor(
+        width: 46.0,
+        height: 46.0,
       ),
     );
   }
