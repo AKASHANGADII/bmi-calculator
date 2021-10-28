@@ -229,7 +229,7 @@ class _HomePageState extends State<HomePage> {
                 child: Text(
                   'CALCULATE YOUR BMI',
                   style: TextStyle(
-                    fontSize: 18.0,
+                    fontSize: 20.0,
                     fontWeight: FontWeight.w500,
                     color: Color(0xFFFFFFFF),
                   ),
