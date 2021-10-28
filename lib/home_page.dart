@@ -148,14 +148,18 @@ class _HomePageState extends State<HomePage> {
                               RoundIconButton(
                                 icon: FontAwesomeIcons.minus,
                                 onPressed: () {
-                                  weight--;
+                                  setState(() {
+                                    weight--;
+                                  });
                                 },
                               ),
                               SizedBox(width: 10.0),
                               RoundIconButton(
                                 icon: FontAwesomeIcons.plus,
                                 onPressed: () {
-                                  weight++;
+                                  setState(() {
+                                    weight++;
+                                  });
                                 },
                               ),
                             ],
@@ -181,14 +185,18 @@ class _HomePageState extends State<HomePage> {
                               RoundIconButton(
                                 icon: FontAwesomeIcons.minus,
                                 onPressed: () {
-                                  age--;
+                                  setState(() {
+                                    age--;
+                                  });
                                 },
                               ),
                               SizedBox(width: 10.0),
                               RoundIconButton(
                                 icon: FontAwesomeIcons.plus,
                                 onPressed: () {
-                                  age++;
+                                  setState(() {
+                                    age++;
+                                  });
                                 },
                               ),
                             ],
