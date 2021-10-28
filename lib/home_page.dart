@@ -45,6 +45,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFF0A0E21),
         title: Center(
           child: Text('BMI-Calculator'),
         ),
@@ -257,8 +258,8 @@ class RoundIconButton extends StatelessWidget {
       shape: CircleBorder(),
       fillColor: Color(0xFF4C4F5E),
       constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
+        width: 46.0,
+        height: 46.0,
       ),
     );
   }
