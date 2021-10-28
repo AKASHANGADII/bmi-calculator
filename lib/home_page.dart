@@ -17,7 +17,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Gender selectedGender;
-  int height = 180;
+  int height = 160;
   int weight = 50;
   int age = 18;
   // Color maleCardColor = inactiveCardColour;
