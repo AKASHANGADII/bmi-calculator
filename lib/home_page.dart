@@ -233,7 +233,7 @@ class RoundIconButton extends StatelessWidget {
     return RawMaterialButton(
       child: Icon(icon, color: Colors.white),
       elevation: 6.0,
-      onPressed: onPressed(),
+      onPressed: onPressed,
       shape: CircleBorder(),
       fillColor: Color(0xFF4C4F5E),
       constraints: BoxConstraints.tightFor(
