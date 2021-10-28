@@ -148,7 +148,7 @@ class _HomePageState extends State<HomePage> {
                               RoundIconButton(
                                 icon: FontAwesomeIcons.minus,
                                 onPressed: () {
-                                  weight--;
+                                  print('Pressed');
                                 },
                               ),
                               SizedBox(width: 10.0),
