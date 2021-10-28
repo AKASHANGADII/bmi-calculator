@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Color(0xFF0A0E21),
         title: Center(
-          child: Text('BMI-Calculator'),
+          child: Text('BMI CALCULATOR'),
         ),
       ),
       body: SafeArea(
@@ -227,7 +227,7 @@ class _HomePageState extends State<HomePage> {
               margin: EdgeInsets.only(top: 10.0),
               child: Center(
                 child: Text(
-                  'CALCULATE',
+                  'CALCULATE YOUR BMI',
                   style: TextStyle(
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,
