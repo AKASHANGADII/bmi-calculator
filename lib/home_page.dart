@@ -45,7 +45,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF0A0E21),
         title: Center(
           child: Text('BMI-Calculator'),
         ),
@@ -60,9 +59,11 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        setState(() {
-                          selectedGender = Gender.male;
-                        });
+                        setState(
+                          () {
+                            selectedGender = Gender.male;
+                          },
+                        );
                       },
                       child: ReusableCard(
                         colour: selectedGender == Gender.male ? kActiveCardColour : kInActiveCardColour,
@@ -73,9 +74,11 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        setState(() {
-                          selectedGender = Gender.female;
-                        });
+                        setState(
+                          () {
+                            selectedGender = Gender.female;
+                          },
+                        );
                       },
                       child: ReusableCard(
                         colour: selectedGender == Gender.female ? kActiveCardColour : kInActiveCardColour,
@@ -109,20 +112,23 @@ class _HomePageState extends State<HomePage> {
                         Text(
                           'cm',
                           style: kFontTextStyle,
-                        )
+                        ),
                       ],
                     ),
                     Slider(
-                        value: height.toDouble(),
-                        min: 120.0,
-                        max: 220.0,
-                        activeColor: Color(0xFFEB1555),
-                        inactiveColor: Color(0xFF8D8E98),
-                        onChanged: (double newValue) {
-                          setState(() {
+                      value: height.toDouble(),
+                      min: 120.0,
+                      max: 220.0,
+                      activeColor: Color(0xFFEB1555),
+                      inactiveColor: Color(0xFF8D8E98),
+                      onChanged: (double newValue) {
+                        setState(
+                          () {
                             height = newValue.round();
-                          });
-                        }),
+                          },
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),
@@ -148,14 +154,20 @@ class _HomePageState extends State<HomePage> {
                               RoundIconButton(
                                 icon: FontAwesomeIcons.minus,
                                 onPressed: () {
-                                  print('left Pressed');
+                                  setState(() {
+                                    weight--;
+                                  });
                                 },
                               ),
                               SizedBox(width: 10.0),
                               RoundIconButton(
                                 icon: FontAwesomeIcons.plus,
                                 onPressed: () {
-                                  print('Right pressed');
+                                  setState(
+                                    () {
+                                      weight++;
+                                    },
+                                  );
                                 },
                               ),
                             ],
@@ -181,14 +193,22 @@ class _HomePageState extends State<HomePage> {
                               RoundIconButton(
                                 icon: FontAwesomeIcons.minus,
                                 onPressed: () {
-                                  age--;
+                                  setState(
+                                    () {
+                                      age--;
+                                    },
+                                  );
                                 },
                               ),
                               SizedBox(width: 10.0),
                               RoundIconButton(
                                 icon: FontAwesomeIcons.plus,
                                 onPressed: () {
-                                  age++;
+                                  setState(
+                                    () {
+                                      age++;
+                                    },
+                                  );
                                 },
                               ),
                             ],
@@ -209,7 +229,7 @@ class _HomePageState extends State<HomePage> {
                   'CALCULATE',
                   style: TextStyle(
                     fontSize: 18.0,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.bold,
                     color: Color(0xFFFFFFFF),
                   ),
                 ),
@@ -233,12 +253,12 @@ class RoundIconButton extends StatelessWidget {
     return RawMaterialButton(
       child: Icon(icon, color: Colors.white),
       elevation: 6.0,
-      onPressed: onPressed,
+      onPressed: onPressed(),
       shape: CircleBorder(),
       fillColor: Color(0xFF4C4F5E),
       constraints: BoxConstraints.tightFor(
-        width: 46.0,
-        height: 46.0,
+        width: 56.0,
+        height: 56.0,
       ),
     );
   }
