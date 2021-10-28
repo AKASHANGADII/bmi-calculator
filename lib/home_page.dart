@@ -208,7 +208,7 @@ class _HomePageState extends State<HomePage> {
                   'CALCULATE',
                   style: TextStyle(
                     fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w500,
                     color: Color(0xFFFFFFFF),
                   ),
                 ),
