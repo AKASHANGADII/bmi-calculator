@@ -148,18 +148,14 @@ class _HomePageState extends State<HomePage> {
                               RoundIconButton(
                                 icon: FontAwesomeIcons.minus,
                                 onPressed: () {
-                                  setState(() {
-                                    weight--;
-                                  });
+                                  weight--;
                                 },
                               ),
                               SizedBox(width: 10.0),
                               RoundIconButton(
                                 icon: FontAwesomeIcons.plus,
                                 onPressed: () {
-                                  setState(() {
-                                    weight++;
-                                  });
+                                  weight++;
                                 },
                               ),
                             ],
@@ -185,18 +181,14 @@ class _HomePageState extends State<HomePage> {
                               RoundIconButton(
                                 icon: FontAwesomeIcons.minus,
                                 onPressed: () {
-                                  setState(() {
-                                    age--;
-                                  });
+                                  age--;
                                 },
                               ),
                               SizedBox(width: 10.0),
                               RoundIconButton(
                                 icon: FontAwesomeIcons.plus,
                                 onPressed: () {
-                                  setState(() {
-                                    age++;
-                                  });
+                                  age++;
                                 },
                               ),
                             ],
@@ -245,8 +237,8 @@ class RoundIconButton extends StatelessWidget {
       shape: CircleBorder(),
       fillColor: Color(0xFF4C4F5E),
       constraints: BoxConstraints.tightFor(
-        width: 36.0,
-        height: 36.0,
+        width: 46.0,
+        height: 46.0,
       ),
     );
   }
