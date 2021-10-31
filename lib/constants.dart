@@ -14,22 +14,15 @@ const kFontTextStyle = TextStyle(
   color: Color(0xFF8D8E98),
 );
 
-const kTitleTextStyle = TextStyle(
-  fontSize: 45.0,
-  fontWeight: FontWeight.w800,
-  color: Color(0xFFFFFFFF)
-);
+const kTitleTextStyle = TextStyle(fontSize: 45.0, fontWeight: FontWeight.w700, color: Color(0xFFFFFFFF));
 
 const kBmiReportTextStyle = TextStyle(
   color: Color(0xFF24D876),
-  fontSize: 22.0,
+  fontSize: 28.0,
   fontWeight: FontWeight.bold,
 );
 
-const kBmiResultNumStyle = TextStyle(
-  fontSize: 100.0,
-  fontWeight: FontWeight.bold
-);
+const kBmiResultNumStyle = TextStyle(fontSize: 80.0, fontWeight: FontWeight.bold);
 
 const kBmiRemarksTextStyle = TextStyle(
   fontSize: 22.0,
