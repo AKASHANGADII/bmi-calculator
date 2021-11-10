@@ -5,6 +5,7 @@ import 'reusable_card.dart';
 import 'constants.dart';
 import 'result_page.dart';
 import 'bottom_button.dart';
+import 'calculator_brain.dart';
 
 enum Gender {
   male,
@@ -63,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                     child: GestureDetector(
                       onTap: () {
                         setState(
-                              () {
+                          () {
                             selectedGender = Gender.male;
                           },
                         );
@@ -78,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                     child: GestureDetector(
                       onTap: () {
                         setState(
-                              () {
+                          () {
                             selectedGender = Gender.female;
                           },
                         );
@@ -126,7 +127,7 @@ class _HomePageState extends State<HomePage> {
                       inactiveColor: Color(0xFF8D8E98),
                       onChanged: (double newValue) {
                         setState(
-                              () {
+                          () {
                             height = newValue.round();
                           },
                         );
@@ -167,7 +168,7 @@ class _HomePageState extends State<HomePage> {
                                 icon: FontAwesomeIcons.plus,
                                 onPressed: () {
                                   setState(
-                                        () {
+                                    () {
                                       weight++;
                                     },
                                   );
@@ -197,7 +198,7 @@ class _HomePageState extends State<HomePage> {
                                 icon: FontAwesomeIcons.minus,
                                 onPressed: () {
                                   setState(
-                                        () {
+                                    () {
                                       age--;
                                     },
                                   );
@@ -208,7 +209,7 @@ class _HomePageState extends State<HomePage> {
                                 icon: FontAwesomeIcons.plus,
                                 onPressed: () {
                                   setState(
-                                        () {
+                                    () {
                                       age++;
                                     },
                                   );
@@ -223,10 +224,13 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            BottomButton(textLabel: 'CALCULATE YOUR BMI',onPressed: (){
+            BottomButton(
+              textLabel: 'CALCULATE YOUR BMI',
+              onPressed: () {
+                CalculatorBrain calc = CalculatorBrain(height: height,weight: weight);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ResultPage()),
+                  MaterialPageRoute(builder: (context) => ResultPage(bmiResult:calc.calculateBMI(),resultText:calc.getResult(),interpretation:calc.getInterpretation(),)),
                 );
               },
             ),
@@ -236,7 +240,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
 
 class RoundIconButton extends StatelessWidget {
   RoundIconButton({@required this.icon, @required this.onPressed});
