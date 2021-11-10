@@ -8,7 +8,11 @@ import 'calculator_brain.dart';
 import 'home_page.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({Key key}) : super(key: key);
+  ResultPage({@required this.bmiResult, @required this.resultText, @required this.interpretation});
+
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
 
   @override
   Widget build(BuildContext context) {
@@ -39,17 +43,17 @@ class ResultPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
-                      'Sample text',
+                      resultText.toUpperCase(),
                       textAlign: TextAlign.center,
                       style: kBmiReportTextStyle,
                     ),
                     Text(
-                      CalculatorBrain(height, weight).toString(),
+                      bmiResult,
                       textAlign: TextAlign.center,
                       style: kBmiResultNumStyle,
                     ),
                     Text(
-                      'Loreal Ipsum sample text loreal ipsum loreal ipsum sample text loreal ipsum sample text loreal ipsum sample text loreal ipsum sample text',
+                      interpretation,
                       textAlign: TextAlign.center,
                       style: kBmiRemarksTextStyle,
                     ),
